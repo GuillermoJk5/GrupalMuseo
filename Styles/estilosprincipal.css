@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.cabecera .titulo{
+    background-color: rgba(255, 0, 0, 0.856) !important;
+}
+
+.cabecera .titulo p{
+    width: fit-content;
+    margin: auto;
+    margin-top: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.divSelector{
+    height: 150px;
+    background-color: grey;
+}
+
+.divSelector p{
+    width: fit-content;
+    margin: auto;
+    margin-top: 40px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+select {
+    margin: auto;
+    padding: 8px;
+    font-size: 16px;
+    border: 3px solid white;
+    border-radius: 4px;
+    outline: none; 
+    width: 200px;
+    background-color: grey;
+    color: white; 
+}
+
+select option {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.tarjeta {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 4px 8px red;
+    padding: 5px;
+    margin: 5;
+}
+
+/* Estilos para la sección de la imagen */
+
+.divImg img {
+    width: 300px;
+    height: auto;
+}
+
+/* Estilos para la sección de datos */
+.divDatos {
+    padding: 10px;
+}
+
+.divDatos p {
+    margin: 0;
+    width: fit-content;
+}
+
+.divDatos > div {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+}
