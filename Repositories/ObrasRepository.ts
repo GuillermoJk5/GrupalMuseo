@@ -1,4 +1,4 @@
-class IdobrasRepository {
+class ObrasRepository {
 
   /**
   * Method for get the artwork with the passed id
@@ -8,6 +8,7 @@ class IdobrasRepository {
   * return the wanted artwork
   */
   getArtWork(id: number): ArtWork {
+
 
   }
 }

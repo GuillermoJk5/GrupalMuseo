@@ -1,4 +1,4 @@
-class IdobraService {
+class ObraService {
 
   private readonly LIMIT = 40;
 
