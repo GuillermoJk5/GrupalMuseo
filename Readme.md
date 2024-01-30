@@ -72,11 +72,15 @@ El museo de arte metropolitano necesita una pagina para que los visitantes pueda
 - [x] ControlerPrincipal.ts
 ---
 **Sergio** 😐
-- [x] Obra.ts
+- [x] ArtWork.ts
+- [x] Constituent.ts
+- [x] ElementMeasurement.ts
+- [x] Measurement.ts
+- [x] Tag.ts
 - [x] Types.ts
 - [x] tsconfig.json
-- [ ] ObrasRepository.ts
-- [ ] ObrasService.ts
+- [ ] ArtWorkRepository.ts
+- [ ] ArtWorkService.ts
 ---
 **Raul** 😈
 - [x] IdobrasController.ts
