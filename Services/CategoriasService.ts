@@ -1,18 +1,16 @@
 class CategoriasService {
     private categoriasRepo = new CategoriasRepository();
+    private arrayDepartment : Department[];
 
-    public loadAllCategories() {
+    public loadAllCategories(callback: (error: string | null, data: Department[] | null) => void): void {
         this.categoriasRepo.getAllCategories((error, data) => {
             if (error) {
                 console.error("Error al realizar la llamada a la API: " + error);
+                callback(error, null);
             } else {
                 const categories = JSON.parse(data);
-                const singletonArray = DepartmentsArray.instance;
-    
-                categories.departments.forEach(department => {
-                    const newDepartment = new Department(department.departmentId, department.displayName);
-                    singletonArray.addItem(newDepartment);
-                });
+                const departments = categories.departments.map(department => new Department(department.departmentId, department.displayName));
+                callback(null, departments);
             }
         });
     }
