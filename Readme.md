@@ -69,7 +69,7 @@ El museo de arte metropolitano necesita una pagina para que los visitantes pueda
 
 ### Reparto de tareas
 **Diego** 🤓
-- [x] ControlerPrincipal.ts
+- [x] PrincipalController.ts
 ---
 **Sergio** 😐
 - [x] ArtWork.ts
@@ -79,21 +79,22 @@ El museo de arte metropolitano necesita una pagina para que los visitantes pueda
 - [x] Tag.ts
 - [x] Types.ts
 - [x] tsconfig.json
-- [ ] ArtWorkRepository.ts
-- [ ] ArtWorkService.ts
----
-**Raul** 😈
 - [x] IdobrasController.ts
 - [x] IdobraService.ts
 ---
+**Raul** 😈
+- [x] ArtWorkRepository.ts
+- [x] ArtWorkService.ts
+---
 **Guille** 🐧
-- [x] ControllerPopUp.ts
+- [x] PopUpController.ts
+- [x] PopUp.ts
 - **Lider de equipo ayudara a sus compañeros**
 ---
 **Victor** 🧓
 - [x] Principal.html
 - [x] estilosprincipal.css
-- [ ] CategoriasService.ts
-- [ ] CategoriasRepository.ts
-- [ ] CategoriasRepository.js
+- [x] CategoriasService.ts
+- [x] CategoriasRepository.ts
+- [x] CategoriasRepository.js
 
