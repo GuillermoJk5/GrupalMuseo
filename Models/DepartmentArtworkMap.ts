@@ -4,12 +4,14 @@
 class DepartmentArtworkMap {
 
   private static instance: DepartmentArtworkMap;
-  private map: { [key: number]: artWork[] } = [];
+  private map: { [key: number]: artWork[] } = {};
 
   private constructor() { }
 
   public static getInstance(): DepartmentArtworkMap {
-    if (typeof this.instance !== 'undefined') {
+    console.log("la")
+    if (!this.instance) {
+      console.log("Hola")
       DepartmentArtworkMap.instance = new DepartmentArtworkMap();
     }
 
@@ -41,6 +43,8 @@ class DepartmentArtworkMap {
   * param departmentId -> id of the wanted department
   */
   public getDepartment(departmentId: number): artWork[] {
+    if (typeof this.map[departmentId] === undefined) return [];
+
     return this.map[departmentId];
   }
 }

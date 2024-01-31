@@ -19,6 +19,10 @@ class ObraService {
     let completed = 0;
 
     for (let i = offset; i < offset + this.LIMIT; i++) {
+      if(i === array.length) {
+        departmentArtworks.populate(departmentId, array);
+          callback(undefined, artworks);
+      }
       let element = array[i];
       if (typeof element === 'number') {
         this.repository.getArtWork(element, (error, artwork) => {
