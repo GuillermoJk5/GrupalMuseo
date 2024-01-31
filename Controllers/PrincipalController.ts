@@ -10,6 +10,7 @@ class PrincipalController {
             if (error) {
                 console.error("Error al cargar las categorías:", error);
             } else {
+                if(typeof(categories) != "undefined")
                 this.populateCategoriesSelect(selectElement, categories);
             }
         });
@@ -25,6 +26,7 @@ class PrincipalController {
                     if (error) {
                         console.error("Error al obtener las obras:", error);
                     } else {
+                        if(typeof(obras) != "undefined")
                         this.displayArtWorks(obras);
                     }
                 });
