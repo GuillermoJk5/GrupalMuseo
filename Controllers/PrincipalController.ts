@@ -56,7 +56,7 @@ class PrincipalController {
         divImg.style.backgroundColor = "red";
 
         const imgElement = document.createElement("img");
-        imgElement.src = obra.primaryImageSmall || ""; 
+        imgElement.src = obra?.primaryImageSmall ??""; 
         imgElement.alt = "Imagen de la obra";
         imgElement.classList.add("img-fluid");
 
@@ -69,9 +69,9 @@ class PrincipalController {
             return paragraph;
         };
 
-        divDatos.appendChild(createParagraph(obra.title));
-        divDatos.appendChild(createParagraph(obra.artistDisplayName));
-        divDatos.appendChild(createParagraph(obra.accessionYear.toString()));
+        divDatos.appendChild(createParagraph(obra?.title??""));
+        divDatos.appendChild(createParagraph(obra?.artistDisplayName??""));
+        divDatos.appendChild(createParagraph(obra?.accessionYear.toString()??""));
 
         divImg.appendChild(imgElement);
         tarjetaElement.appendChild(divImg);
