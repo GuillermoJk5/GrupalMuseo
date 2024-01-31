@@ -7,15 +7,15 @@ class ObraService {
   /**
   * Method for get the artworks fit for one page
   *
-  * params category -> category of the artworks
+  * params departmentId -> id of the department of the artworks
   * params offset -> position of the first element
   * params callback -> function that specifies what happens when the function fails and when the ArtWorks are correctly fetched
   *
   */
-  getArtWorks(department: Department, offset: number, callback: (error?: Error, artworks?: ArtWork[]) => void): void {
+  getArtWorks(departmentId: number, offset: number, callback: (error?: Error, artworks?: ArtWork[]) => void): void {
     const artworks: ArtWork[] = [];
-    /* const array = arr.get(department); */
-    const array: artWork[] = [];
+    const departmentArtworks = DepartmentArtworkMap.getInstance();
+    const array = departmentArtworks.getDepartment(departmentId);
     let completed = 0;
 
     for (let i = offset; i < offset + this.LIMIT; i++) {
@@ -26,8 +26,10 @@ class ObraService {
             console.log(error);
           } else {
             artworks.push(artwork);
+            array[i] = artwork;
             completed++;
             if (completed === this.LIMIT) {
+              departmentArtworks.populate(departmentId, array);
               callback(undefined, artworks);
             }
           }
@@ -36,6 +38,7 @@ class ObraService {
         artworks.push(element);
         completed++;
         if (completed === this.LIMIT) {
+          departmentArtworks.populate(departmentId, array);
           callback(undefined, artworks);
         }
       }
