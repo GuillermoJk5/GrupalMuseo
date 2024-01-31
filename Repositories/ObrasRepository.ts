@@ -9,10 +9,10 @@ class ObrasRepository {
   * params callback -> function that specifies what happens when the function fails and when the ArtWork is correctly fetched
   * 
   */
-  getArtWork(id: number, callback: (error: Error, artwork: ArtWork) => void): void {
+  getArtWork(id: number, callback: (error?: Error, artwork?: ArtWork) => void): void {
     $.getJSON(this.url + id, (response) => {
       console.log(response);
-      callback(null, response);
-    }).fail(_ => callback(new Error("Failed to fetch artwork"), null));
+      callback(undefined, response);
+    }).fail(_ => callback(new Error("Failed to fetch artwork"), undefined));
   }
 }
