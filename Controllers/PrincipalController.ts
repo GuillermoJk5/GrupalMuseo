@@ -22,7 +22,7 @@ class PrincipalController {
                 this.selectedCategoryId = parseInt(selectedValue, 10);
                 console.log("ID de la categoría seleccionada:", this.selectedCategoryId);
 
-                this.obrasService.getArtWorks(new Department(this.selectedCategoryId, ""), 0, (error, obras) => {
+                this.obrasService.getArtWorks(this.selectedCategoryId, 0, (error, obras) => {
                     if (error) {
                         console.error("Error al obtener las obras:", error);
                     } else {
