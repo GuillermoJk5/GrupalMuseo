@@ -23,13 +23,27 @@ El museo de arte metropolitano necesita una pagina para que los visitantes pueda
 
 ### Arquitectura del software
 - Models
-    - Obra
+    - Artwork
 
       > Clase que representa un objeto Obra
 
     - Types
  
       > Clase que crea types
+
+    - Tag
+
+    - PopUp
+
+      > Clase uqe genera el Popup
+
+    - Department
+
+    - Measurement
+
+    - Constituent
+
+    - ElementMeasurements
     
 - Views
     - Principal.html
@@ -37,11 +51,11 @@ El museo de arte metropolitano necesita una pagina para que los visitantes pueda
       > Ventana principal
       
 - Controllers
-    - ControllerPrincipal.ts
+    - PrincipalController.ts
       
       > Controlador de la pagina principal
 
-    - ControllerPopUp.ts
+    - PopUpcontroller.ts
     
       > Controlador del PopUp
     
@@ -50,15 +64,32 @@ El museo de arte metropolitano necesita una pagina para que los visitantes pueda
  
       > Servicio para obtener las categorias
     
-    - IdobraService.ts
+    - IdArtworkService.ts
  
       > Servicio para obtener los ids de las obras de una categorias
     
-    - ObraService.ts
+    - ArtworkService.ts
  
       > Servicio para obtener los datos de las obras
     
+- Repository
+    - CategoriasRepository.ts
+ 
+      > Servicio para obtener las categorias
+    
+    - IdArtworkRepository.ts
+ 
+      > Servicio para obtener los ids de las obras de una categorias
+    
+    - ArtworkRepository.ts
+ 
+      > Servicio para obtener los datos de las obras
+
+
+
+
 - Styles
+    -principalstyles.css
   
 
 ### Paleta de colores para la aplicación
