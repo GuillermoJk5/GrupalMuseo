@@ -6,6 +6,8 @@ class IdArtWorkService{
                 console.error(error);
                 callback(error, []);
             } else {
+                const departmentMap = DepartmentArtworkMap.getInstance();
+                departmentMap.populate(department, data);
                 callback(null, data);
             }
         });
