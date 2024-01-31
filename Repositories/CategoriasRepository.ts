@@ -1,14 +1,14 @@
 class CategoriasRepository {
     private urlApiCategorias: string = "https://collectionapi.metmuseum.org/public/collection/v1/departments";
 
-    public getAllCategories(callback: (error: string, data: string) => void): void {
+    public getAllCategories(callback: (error?: string, data?: string) => void): void {
         let ajax = new XMLHttpRequest();
         ajax.open("GET", this.urlApiCategorias);
         ajax.onload = function () {
             if (this.status == 200) {
-                callback(null, ajax.responseText);
+                callback(undefined, ajax.responseText);
             } else {
-                callback("Ha ocurrido un problema: " + this.status + " " + this.statusText, null);
+                callback("Ha ocurrido un problema: " + this.status + " " + this.statusText, undefined);
             }
         };
 
