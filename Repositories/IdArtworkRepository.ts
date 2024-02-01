@@ -8,7 +8,7 @@ class IdArtWorkRepository{
             },
             dataType: "json",
             success: function (data) {
-                callback(null, data.objectIDs);
+                callback(null, data.objectIDs.sort());
             },
             error: function () {
                 callback(new Error('La solicitud no fue exitosa'), []);
