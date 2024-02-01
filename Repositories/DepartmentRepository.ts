@@ -1,4 +1,4 @@
-class CategoriasRepository {
+class DepartmentRepository {
     private urlApiCategorias: string = "https://collectionapi.metmuseum.org/public/collection/v1/departments";
 
     public getAllCategories(callback: (error?: string, data?: string) => void): void {

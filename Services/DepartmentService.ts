@@ -1,5 +1,5 @@
-class CategoriasService {
-    private categoriasRepo = new CategoriasRepository();
+class DepartmentService {
+    private categoriasRepo = new DepartmentRepository();
 
     public loadAllCategories(callback: (error?: string | undefined, data?: Department[] | undefined) => void): void {
         this.categoriasRepo.getAllCategories((error, data) => {
