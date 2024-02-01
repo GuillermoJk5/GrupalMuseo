@@ -9,9 +9,7 @@ class DepartmentArtworkMap {
   private constructor() { }
 
   public static getInstance(): DepartmentArtworkMap {
-    console.log("la")
-    if (!this.instance) {
-      console.log("Hola")
+    if (!DepartmentArtworkMap.instance) {
       DepartmentArtworkMap.instance = new DepartmentArtworkMap();
     }
 
@@ -43,8 +41,6 @@ class DepartmentArtworkMap {
   * param departmentId -> id of the wanted department
   */
   public getDepartment(departmentId: number): artWork[] {
-    if (typeof this.map[departmentId] === undefined) return [];
-
     return this.map[departmentId];
   }
 }
