@@ -27,19 +27,19 @@ class PrincipalController {
                         console.error("Error al cargar las categorías:", error);
                     } else {
                         console.log("Datos obtenidos");
+
+                        this.obrasService.getArtWorks(this.selectedCategoryId ?? 1, 0, (error, obras) => {
+                            if (error) {
+                                console.error("Error al obtener las obras:", error);
+                            } else {
+                                if(typeof(obras) != "undefined")
+                                this.displayArtWorks(obras);
+                            }
+                        });
                     }
                 })
                 );
-                console.log("ID de la categoría seleccionada:", this.selectedCategoryId);
-
-                this.obrasService.getArtWorks(this.selectedCategoryId, 0, (error, obras) => {
-                    if (error) {
-                        console.error("Error al obtener las obras:", error);
-                    } else {
-                        if(typeof(obras) != "undefined")
-                        this.displayArtWorks(obras);
-                    }
-                });
+                
             } else {
                 this.selectedCategoryId = null;
                 console.warn("No se ha seleccionado ninguna categoría.");
