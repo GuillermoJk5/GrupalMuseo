@@ -1,7 +1,8 @@
 class PrincipalController {
     private categoriasService = new CategoriasService();
     private obrasService = new ObraService(new ObrasRepository());
-    private selectedCategoryId: number | null = null; 
+    private selectedCategoryId: number | null = null;
+    private idArtWorkSer = new IdArtWorkService(); 
 
     public init(): void {
         const selectElement = document.getElementById("categoriaSelect") as HTMLSelectElement;
@@ -18,8 +19,17 @@ class PrincipalController {
         selectElement.addEventListener("change", () => {
             const selectedValue = selectElement.value;
 
+
             if (selectedValue) {
                 this.selectedCategoryId = parseInt(selectedValue, 10);
+                this.idArtWorkSer.getDepartmentIds(this.selectedCategoryId,((error, data) => {
+                    if (error) {
+                        console.error("Error al cargar las categorías:", error);
+                    } else {
+                        console.log("Datos obtenidos");
+                    }
+                })
+                );
                 console.log("ID de la categoría seleccionada:", this.selectedCategoryId);
 
                 this.obrasService.getArtWorks(this.selectedCategoryId, 0, (error, obras) => {
