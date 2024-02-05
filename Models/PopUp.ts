@@ -7,8 +7,10 @@ class PopUp {
   }
 
   private createPopup(artwork: ArtWork): void {
+    // Crear elementos del popup
     this.popupElement = document.createElement('div');
     this.popupElement.className = 'popup';
+    
 
     this.contentElement = document.createElement('div');
     this.contentElement.className = 'popup-content';
@@ -44,21 +46,45 @@ class PopUp {
     // Agregar el popup al cuerpo del documento
     document.body.appendChild(this.popupElement);
 
-    // Configurar el evento de cierre del popup
-    const closePopupBtn = this.popupElement.querySelector('#closePopupBtn');
-    if (closePopupBtn) {
-      closePopupBtn.addEventListener('click', () => {
-        this.closePopup();
-      });
-    }
+  // Configurar el evento de cierre del popup
+  const closePopupBtn = this.popupElement.querySelector('#closePopupBtn');
+  if (closePopupBtn) {
+    closePopupBtn.addEventListener('click', () => {
+      this.closePopup();
+    });
   }
 
-  getPopupElement(): HTMLElement {
-    return this.popupElement;
-  }
-  closePopup(): void {
-    this.popupElement.style.display = 'none';
-  }
+  // Agregar el contenido al popup
+  this.popupElement.appendChild(this.contentElement);
+
+  // Agregar el popup al cuerpo del documento
+  document.body.appendChild(this.popupElement);
+
+  // Centrar el popup
+  this.centerPopup();
+}
+
+private centerPopup(): void {
+  const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+  const popupWidth = this.popupElement.offsetWidth;
+  const popupHeight = this.popupElement.offsetHeight;
+
+  const leftPosition = (windowWidth - popupWidth) / 2;
+  const topPosition = (windowHeight - popupHeight) / 2;
+
+  this.popupElement.style.left = `${leftPosition}px`;
+  this.popupElement.style.top = `${topPosition}px`;
+}
+
+getPopupElement(): HTMLElement {
+  return this.popupElement;
+}
+
+closePopup(): void {
+  this.popupElement.style.display = 'none';
+}
 }
   
     
