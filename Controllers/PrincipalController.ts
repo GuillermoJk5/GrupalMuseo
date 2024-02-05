@@ -6,10 +6,11 @@ class PrincipalController {
     private currentPage: number = 1;
     private pageSize: number = 40;
     private totalArtWorks: number = 0;
+    private paginationElement = document.getElementById("paginationContainer");
 
     public init(): void {
         const selectElement = document.getElementById("categoriaSelect") as HTMLSelectElement;
-        const paginationElement = document.getElementById("paginationContainer");
+        
 
         this.categoriasService.loadAllCategories((error, categories) => {
             if (error) {
@@ -24,22 +25,20 @@ class PrincipalController {
         selectElement.addEventListener("change", () => {
             const selectedValue = selectElement.value;
 
-            if(paginationElement?.style.visibility == "hidden"){
-                paginationElement.style.visibility = "visible";
-            }
+            
             if (selectedValue) {
                 this.selectedCategoryId = parseInt(selectedValue, 10);
                 this.currentPage = 1; // Reset page when category changes
                 this.loadAndDisplayArtWorks();
                 
+                
             } else {
                 this.selectedCategoryId = null;
                 console.warn("No se ha seleccionado ninguna categoría.");
             }
+            
         });
 
-        // Cargar y mostrar obras al iniciar la página
-        this.loadAndDisplayArtWorks();
     }
 
     private loadAndDisplayArtWorks(): void {
@@ -61,6 +60,9 @@ class PrincipalController {
                             if (typeof(obras) !== "undefined") {
                                 this.displayArtWorks(obras);
                                 this.createPagination();
+                                if(this.paginationElement?.style.visibility == "hidden"){
+                                    this.paginationElement.style.visibility = "visible";
+                                }
                             }
                         }
                     });
@@ -194,14 +196,10 @@ class PrincipalController {
 
     //METODO QUE USARÁ GUILLE PARA MOSTRAR LOS DATOS DE LAS OBRAS
     private onArtworkClick(obra: ArtWork): void {
-        // Aquí es donde puedes acceder al código de otra clase.
-        // Crea una instancia de esa clase y llama a sus métodos o realiza las acciones necesarias.
-    
-        //const otraClase = new OtraClase(); // Reemplaza 'OtraClase' con el nombre de tu clase
-        //otraClase.mostrarInformacion(obra);
-    
-        // También puedes realizar otras acciones específicas de esta clase si es necesario.
-    
+
+        const popupController = new PopupController(obra);
+        popupController.openPopup(); 
+
         // Log a la consola si es necesario
         console.log("El usuario hizo clic en una obra:", obra);
     }
