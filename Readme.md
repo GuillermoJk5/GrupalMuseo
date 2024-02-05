@@ -86,7 +86,7 @@ El museo de arte metropolitano necesita una pagina para que los visitantes pueda
       > 
 
 - Styles
-    - principalstyles.css
+    - styles.css
 
 - assets
     > Carpeta para imagenes
