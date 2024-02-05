@@ -1,6 +1,6 @@
 class PrincipalController {
     private categoriasService = new DepartmentService();
-    private obrasService = new ObraService(new ObrasRepository());
+    private obrasService = new ObraService(new ArtWorkRepository());
     private idArtWorkSer = new IdArtWorkService(); 
     private selectedCategoryId: number | null = null;
     private currentPage: number = 1;
@@ -9,6 +9,7 @@ class PrincipalController {
 
     public init(): void {
         const selectElement = document.getElementById("categoriaSelect") as HTMLSelectElement;
+        const paginationElement = document.getElementById("paginationContainer");
 
         this.categoriasService.loadAllCategories((error, categories) => {
             if (error) {
@@ -23,10 +24,14 @@ class PrincipalController {
         selectElement.addEventListener("change", () => {
             const selectedValue = selectElement.value;
 
+            if(paginationElement?.style.visibility == "hidden"){
+                paginationElement.style.visibility = "visible";
+            }
             if (selectedValue) {
                 this.selectedCategoryId = parseInt(selectedValue, 10);
                 this.currentPage = 1; // Reset page when category changes
                 this.loadAndDisplayArtWorks();
+                
             } else {
                 this.selectedCategoryId = null;
                 console.warn("No se ha seleccionado ninguna categoría.");
@@ -113,7 +118,7 @@ class PrincipalController {
     }
 
     private populateCategoriesSelect(selectElement: HTMLSelectElement, categories: Department[] | null): void {
-        selectElement.innerHTML = '<option value="">Categoría</option>';
+        selectElement.innerHTML = '<option value="" disabled selected>Categoría</option>';
 
         categories?.forEach((category) => {
             const option = document.createElement("option");
