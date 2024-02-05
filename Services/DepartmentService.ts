@@ -1,6 +1,14 @@
+/**
+ * Clase encargada de llamar a DepartmentRepository y trabajar con los datos que devuelve, para que puedan ser utilizados
+ * en el resto del programa.
+ */
 class DepartmentService {
     private categoriasRepo = new DepartmentRepository();
-
+    /**
+     * Metodo que que en caso de error devulve el error producido y en caso de exito carga los id de los departamentos en 
+     * el departamentMap y ademas devuelve los id en un map diferente al llamar la funcion.
+     * @param callback 
+     */
     public loadAllCategories(callback: (error?: string | undefined, data?: Department[] | undefined) => void): void {
         this.categoriasRepo.getAllCategories((error, data) => {
             if (typeof data === "undefined" ) {
