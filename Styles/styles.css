@@ -4,6 +4,7 @@ body{
 }
 
 .popup {
+    width: 1000px;
     position: fixed;
     background-color: #fff;
     padding: 20px;
@@ -79,7 +80,7 @@ select option {
 /* Estilos para la sección de la imagen */
 
 
-.divImg img {
+img {
     width: 300px;
     height: auto;
 }

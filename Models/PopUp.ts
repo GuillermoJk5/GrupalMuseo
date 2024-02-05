@@ -10,6 +10,7 @@ class PopUp {
     // Crear elementos del popup
     this.popupElement = document.createElement('div');
     this.popupElement.className = 'popup';
+    this.popupElement.style.display = 'block';
     
     this.contentElement = document.createElement('div');
     this.contentElement.className = 'popup-content';
@@ -25,8 +26,6 @@ class PopUp {
     titleElement.textContent = artwork.title;
     
     const imageElement = document.createElement('img');
-    imageElement.style.height = '40px';
-    imageElement.style.width = '40px';
     imageElement.src = artwork.primaryImage;
     imageElement.alt = 'Artwork Image';
     
@@ -94,30 +93,7 @@ class PopUp {
   // Agregar el popup al cuerpo del documento
   document.body.appendChild(this.popupElement);
 
-  // Centrar el popup
-  this.centerPopup();
 
-  // Configurar el evento de clic fuera del popup para cerrarlo
-  document.addEventListener('click', (event) => {
-    if (!this.popupElement.contains(event.target as Node)) {
-      // Si el clic no está dentro del popup, cerrarlo
-      this.closePopup();
-    }
-  });
-}
-
-private centerPopup(): void {
-  const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-
-  const popupWidth = this.popupElement.offsetWidth;
-  const popupHeight = this.popupElement.offsetHeight;
-
-  const leftPosition = (windowWidth - popupWidth) / 2;
-  const topPosition = (windowHeight - popupHeight) / 2;
-
-  this.popupElement.style.left = `${leftPosition}px`;
-  this.popupElement.style.top = `${topPosition}px`;
 }
 
 getPopupElement(): HTMLElement {
