@@ -1,4 +1,4 @@
-class ObraService {
+class ArtWorkService {
   private readonly LIMIT = 40;
 
   constructor(private repository: ArtWorkRepository) {}
