@@ -11,42 +11,76 @@ class PopUp {
     this.popupElement = document.createElement('div');
     this.popupElement.className = 'popup';
     
-
     this.contentElement = document.createElement('div');
     this.contentElement.className = 'popup-content';
-
-    this.contentElement.innerHTML = `
-        <span class="close-btn" id="closePopupBtn">&times;</span>
-        <h1 id="artworkTitle">${artwork.title}</h1>
-        <img src="${artwork.primaryImage}" alt="Artwork Image">
-        <h2 id="artworkAuthor">Author: ${artwork.artistDisplayName}</h2>
-        <p>
-          Year: ${artwork.objectDate}<br>
-          Measurements: ${artwork.measurements}<br>
-          Culture: ${artwork.culture}<br>
-          Period: ${artwork.period}<br>
-          Dynasty: ${artwork.dynasty}<br>
-          Reign: ${artwork.reign}<br>
-        </p>
-        <h2>Artist Details</h2>
-        <p>
-          Artist Gender: ${artwork.artistGender}<br>
-          Artist Role: ${artwork.artistRole}<br>
-        </p>
-        <p>
-          Country: ${artwork.country}<br>
-          Region: ${artwork.region}<br>
-          City: ${artwork.city}<br>
-        </p>
-      `;
+    
+    // Creating elements for each part of the content
+    const closeBtn = document.createElement('span');
+    closeBtn.className = 'close-btn';
+    closeBtn.id = 'closePopupBtn';
+    closeBtn.innerHTML = '&times;';
+    
+    const titleElement = document.createElement('h1');
+    titleElement.id = 'artworkTitle';
+    titleElement.textContent = artwork.title;
+    
+    const imageElement = document.createElement('img');
+    imageElement.style.height = '40px';
+    imageElement.style.width = '40px';
+    imageElement.src = artwork.primaryImage;
+    imageElement.alt = 'Artwork Image';
+    
+    const authorElement = document.createElement('h2');
+    authorElement.id = 'artworkAuthor';
+    authorElement.textContent = `Author: ${artwork.artistDisplayName}`;
+    
+    const detailsElement = document.createElement('p');
+    detailsElement.innerHTML = `
+        Year: ${artwork.objectDate}<br>
+        Measurements: ${artwork.measurements}<br>
+        Culture: ${artwork.culture}<br>
+        Period: ${artwork.period}<br>
+        Dynasty: ${artwork.dynasty}<br>
+        Reign: ${artwork.reign}<br>
+    `;
+    
+    const artistDetailsElement = document.createElement('h2');
+    artistDetailsElement.textContent = 'Artist Details';
+    
+    const artistDetailsContentElement = document.createElement('p');
+    artistDetailsContentElement.innerHTML = `
+        Artist Gender: ${artwork.artistGender}<br>
+        Artist Role: ${artwork.artistRole}<br>
+    `;
+    
+    const locationElement = document.createElement('p');
+    locationElement.innerHTML = `
+        Country: ${artwork.country}<br>
+        Region: ${artwork.region}<br>
+        City: ${artwork.city}<br>
+    `;
+    
+    // Appending elements to contentElement
+    this.contentElement.appendChild(closeBtn);
+    this.contentElement.appendChild(titleElement);
+    this.contentElement.appendChild(imageElement);
+    this.contentElement.appendChild(authorElement);
+    this.contentElement.appendChild(detailsElement);
+    this.contentElement.appendChild(artistDetailsElement);
+    this.contentElement.appendChild(artistDetailsContentElement);
+    this.contentElement.appendChild(locationElement);
+    
+    // Appending contentElement to popupElement
+    this.popupElement.appendChild(this.contentElement);
+    
   
-         // Agregar el contenido al popup
+    // Agregar el contenido al popup
     this.popupElement.appendChild(this.contentElement);
 
     // Agregar el popup al cuerpo del documento
     document.body.appendChild(this.popupElement);
 
-  // Configurar el evento de cierre del popup
+  /// Configurar el evento de cierre del popup
   const closePopupBtn = this.popupElement.querySelector('#closePopupBtn');
   if (closePopupBtn) {
     closePopupBtn.addEventListener('click', () => {
@@ -62,6 +96,14 @@ class PopUp {
 
   // Centrar el popup
   this.centerPopup();
+
+  // Configurar el evento de clic fuera del popup para cerrarlo
+  document.addEventListener('click', (event) => {
+    if (!this.popupElement.contains(event.target as Node)) {
+      // Si el clic no está dentro del popup, cerrarlo
+      this.closePopup();
+    }
+  });
 }
 
 private centerPopup(): void {
