@@ -88,9 +88,6 @@ select option {
     justify-content: space-between;
 }
 
-.divPagination{
-    visibility: hidden;
-}
 .page-link:hover{
     cursor: pointer;
 }
