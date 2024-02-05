@@ -1,6 +1,6 @@
 class PrincipalController {
     private categoriasService = new DepartmentService();
-    private obrasService = new ObraService(new ArtWorkRepository());
+    private obrasService = new ArtWorkService(new ArtWorkRepository());
     private idArtWorkSer = new IdArtWorkService(); 
     private selectedCategoryId: number | null = null;
     private currentPage: number = 1;
