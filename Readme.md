@@ -75,21 +75,21 @@ El museo de arte metropolitano necesita una pagina para que los visitantes pueda
 - Repository
     - CategoriasRepository.ts
  
-      > Servicio para obtener las categorias
+      > 
     
     - IdArtworkRepository.ts
  
-      > Servicio para obtener los ids de las obras de una categorias
+      > 
     
     - ArtworkRepository.ts
  
-      > Servicio para obtener los datos de las obras
-
-
-
+      > 
 
 - Styles
-    -principalstyles.css
+    - principalstyles.css
+
+- assets
+    > Carpeta para imagenes
   
 
 ### Paleta de colores para la aplicación
