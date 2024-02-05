@@ -1,4 +1,4 @@
-class ObrasRepository {
+class ArtWorkRepository {
   readonly url =
     "https://collectionapi.metmuseum.org/public/collection/v1/objects/";
 

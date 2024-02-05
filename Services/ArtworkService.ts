@@ -1,18 +1,21 @@
 class ObraService {
-
   private readonly LIMIT = 40;
 
-  constructor(private repository: ObrasRepository) { };
+  constructor(private repository: ArtWorkRepository) {}
 
   /**
-  * Method for get the artworks fit for one page
-  *
-  * params departmentId -> id of the department of the artworks
-  * params offset -> position of the first element
-  * params callback -> function that specifies what happens when the function fails and when the ArtWorks are correctly fetched
-  *
-  */
-  getArtWorks(departmentId: number, offset: number, callback: (error?: Error, artworks?: ArtWork[]) => void): void {
+   * Method for get the artworks fit for one page
+   *
+   * params departmentId -> id of the department of the artworks
+   * params offset -> position of the first element
+   * params callback -> function that specifies what happens when the function fails and when the ArtWorks are correctly fetched
+   *
+   */
+  getArtWorks(
+    departmentId: number,
+    offset: number,
+    callback: (error?: Error, artworks?: ArtWork[]) => void,
+  ): void {
     const artworks: ArtWork[] = [];
     const departmentArtworks = DepartmentArtworkMap.getInstance();
     const array = departmentArtworks.getDepartment(departmentId);
@@ -24,9 +27,9 @@ class ObraService {
         callback(undefined, artworks);
       }
       let element = array[i];
-      if (typeof element === 'number') {
+      if (typeof element === "number") {
         this.repository.getArtWork(element, (error, artwork) => {
-          if (typeof artwork === 'undefined') {
+          if (typeof artwork === "undefined") {
             console.log(error);
           } else {
             artworks.push(artwork);
