@@ -36,7 +36,6 @@ class PopUp {
     const detailsElement = document.createElement('p');
     detailsElement.innerHTML = `
         Year: ${artwork.objectDate}<br>
-        Measurements: ${artwork.measurements}<br>
         Culture: ${artwork.culture}<br>
         Period: ${artwork.period}<br>
         Dynasty: ${artwork.dynasty}<br>
@@ -50,14 +49,11 @@ class PopUp {
     artistDetailsContentElement.innerHTML = `
         Artist Gender: ${artwork.artistGender}<br>
         Artist Role: ${artwork.artistRole}<br>
-    `;
-    
-    const locationElement = document.createElement('p');
-    locationElement.innerHTML = `
         Country: ${artwork.country}<br>
         Region: ${artwork.region}<br>
         City: ${artwork.city}<br>
     `;
+    
     
     // Appending elements to contentElement
     this.contentElement.appendChild(closeBtn);
@@ -67,42 +63,27 @@ class PopUp {
     this.contentElement.appendChild(detailsElement);
     this.contentElement.appendChild(artistDetailsElement);
     this.contentElement.appendChild(artistDetailsContentElement);
-    this.contentElement.appendChild(locationElement);
     
     // Appending contentElement to popupElement
     this.popupElement.appendChild(this.contentElement);
-    
   
-    // Agregar el contenido al popup
-    this.popupElement.appendChild(this.contentElement);
-
     // Agregar el popup al cuerpo del documento
     document.body.appendChild(this.popupElement);
 
-  /// Configurar el evento de cierre del popup
-  const closePopupBtn = this.popupElement.querySelector('#closePopupBtn');
-  if (closePopupBtn) {
-    closePopupBtn.addEventListener('click', () => {
-      this.closePopup();
-    });
+    // Configurar el evento de cierre del popup
+    const closePopupBtn = this.popupElement.querySelector('#closePopupBtn');
+    if (closePopupBtn) {
+      closePopupBtn.addEventListener('click', () => {
+        this.closePopup();
+      });
+    }
   }
 
-  // Agregar el contenido al popup
-  this.popupElement.appendChild(this.contentElement);
+  getPopupElement(): HTMLElement {
+    return this.popupElement;
+  }
 
-  // Agregar el popup al cuerpo del documento
-  document.body.appendChild(this.popupElement);
-
-
+  closePopup(): void {
+    this.popupElement.style.display = 'none';
+  }
 }
-
-getPopupElement(): HTMLElement {
-  return this.popupElement;
-}
-
-closePopup(): void {
-  this.popupElement.style.display = 'none';
-}
-}
-  
-    
