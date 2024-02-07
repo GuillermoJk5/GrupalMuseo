@@ -11,15 +11,17 @@ class PopUp {
     this.popupElement = document.createElement('div');
     this.popupElement.className = 'popup';
     this.popupElement.style.display = 'block';
+    this.popupElement.style.width = 'fit-content'; // Estilo wrap content
     
     this.contentElement = document.createElement('div');
     this.contentElement.className = 'popup-content';
     
-    // Creating elements for each part of the content
+    // Crear elementos para cada parte del contenido
     const closeBtn = document.createElement('span');
     closeBtn.className = 'close-btn';
     closeBtn.id = 'closePopupBtn';
     closeBtn.innerHTML = '&times;';
+    closeBtn.style.cursor = 'pointer'; 
     
     const titleElement = document.createElement('h1');
     titleElement.id = 'artworkTitle';
@@ -31,31 +33,31 @@ class PopUp {
     
     const authorElement = document.createElement('h2');
     authorElement.id = 'artworkAuthor';
-    authorElement.textContent = `Author: ${artwork.artistDisplayName}`;
+    authorElement.textContent = `Autor: ${artwork.artistDisplayName}`;
     
     const detailsElement = document.createElement('p');
     detailsElement.innerHTML = `
-        Year: ${artwork.objectDate}<br>
-        Culture: ${artwork.culture}<br>
-        Period: ${artwork.period}<br>
-        Dynasty: ${artwork.dynasty}<br>
-        Reign: ${artwork.reign}<br>
+        Año: ${artwork.objectDate}<br>
+        Cultura: ${artwork.culture}<br>
+        Periodo: ${artwork.period}<br>
+        Dinastía: ${artwork.dynasty}<br>
+        Reinado: ${artwork.reign}<br>
     `;
     
     const artistDetailsElement = document.createElement('h2');
-    artistDetailsElement.textContent = 'Artist Details';
+    artistDetailsElement.textContent = 'Detalles del Artista';
     
     const artistDetailsContentElement = document.createElement('p');
     artistDetailsContentElement.innerHTML = `
-        Artist Gender: ${artwork.artistGender}<br>
-        Artist Role: ${artwork.artistRole}<br>
-        Country: ${artwork.country}<br>
-        Region: ${artwork.region}<br>
-        City: ${artwork.city}<br>
+        Género del Artista: ${artwork.artistGender}<br>
+        Rol del Artista: ${artwork.artistRole}<br>
+        País: ${artwork.country}<br>
+        Región: ${artwork.region}<br>
+        Ciudad: ${artwork.city}<br>
     `;
     
     
-    // Appending elements to contentElement
+    // Agregar elementos al contentElement
     this.contentElement.appendChild(closeBtn);
     this.contentElement.appendChild(titleElement);
     this.contentElement.appendChild(imageElement);
@@ -64,7 +66,7 @@ class PopUp {
     this.contentElement.appendChild(artistDetailsElement);
     this.contentElement.appendChild(artistDetailsContentElement);
     
-    // Appending contentElement to popupElement
+    // Agregar contentElement al popupElement
     this.popupElement.appendChild(this.contentElement);
   
     // Agregar el popup al cuerpo del documento
