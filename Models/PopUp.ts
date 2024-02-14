@@ -11,6 +11,7 @@ class PopUp {
    
     artwork.objectDate = this.ponerdato(artwork.objectDate);
     artwork.culture = this.ponerdato(artwork.culture);
+    artwork.period = this.ponerdato(artwork.period);
     artwork.dynasty = this.ponerdato(artwork.dynasty);
     artwork.reign = this.ponerdato(artwork.reign);
     artwork.artistGender = this.ponerdato(artwork.artistGender);
@@ -55,7 +56,7 @@ class PopUp {
     const imageElement = document.createElement('img');
     imageElement.src = artwork.primaryImage;
     imageElement.alt = 'Artwork Image';
-    imageElement.style.height = '90%'; 
+    imageElement.style.height = '70%'; 
     
     const authorElement = document.createElement('h2');
     authorElement.id = 'artworkAuthor';
