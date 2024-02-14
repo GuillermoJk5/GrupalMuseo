@@ -3,7 +3,32 @@ class PopUp {
   private contentElement!: HTMLElement;
 
   constructor(artwork: ArtWork) {
+    artwork=this.artworkformate(artwork);
     this.createPopup(artwork);
+  }
+
+  private artworkformate(artwork:ArtWork){
+   
+    artwork.objectDate = this.ponerdato(artwork.objectDate);
+    artwork.objectDate = this.ponerdato(artwork.culture);
+    artwork.objectDate = this.ponerdato(artwork.dynasty);
+    artwork.objectDate = this.ponerdato(artwork.reign);
+    artwork.objectDate = this.ponerdato(artwork.artistGender);
+    artwork.objectDate = this.ponerdato(artwork.artistRole);
+    artwork.objectDate = this.ponerdato(artwork.region);
+    artwork.objectDate = this.ponerdato(artwork.country);
+    artwork.objectDate = this.ponerdato(artwork.city);
+    artwork.objectDate = this.ponerdato(artwork.artistDisplayName);
+
+    return artwork;
+  }
+
+  private ponerdato(campo:string){
+    if (campo==""||campo==null) {
+      return "sin datos";
+  }else{
+    return campo;
+  }
   }
 
   private createPopup(artwork: ArtWork): void {
@@ -11,7 +36,7 @@ class PopUp {
     this.popupElement = document.createElement('div');
     this.popupElement.className = 'popup';
     this.popupElement.style.display = 'block';
-    this.popupElement.style.width = 'fit-content'; // Estilo wrap content
+    this.popupElement.style.width = 'fit-content'; 
     
     this.contentElement = document.createElement('div');
     this.contentElement.className = 'popup-content';
