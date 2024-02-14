@@ -10,15 +10,15 @@ class PopUp {
   private artworkformate(artwork:ArtWork){
    
     artwork.objectDate = this.ponerdato(artwork.objectDate);
-    artwork.objectDate = this.ponerdato(artwork.culture);
-    artwork.objectDate = this.ponerdato(artwork.dynasty);
-    artwork.objectDate = this.ponerdato(artwork.reign);
-    artwork.objectDate = this.ponerdato(artwork.artistGender);
-    artwork.objectDate = this.ponerdato(artwork.artistRole);
-    artwork.objectDate = this.ponerdato(artwork.region);
-    artwork.objectDate = this.ponerdato(artwork.country);
-    artwork.objectDate = this.ponerdato(artwork.city);
-    artwork.objectDate = this.ponerdato(artwork.artistDisplayName);
+    artwork.culture = this.ponerdato(artwork.culture);
+    artwork.dynasty = this.ponerdato(artwork.dynasty);
+    artwork.reign = this.ponerdato(artwork.reign);
+    artwork.artistGender = this.ponerdato(artwork.artistGender);
+    artwork.artistRole = this.ponerdato(artwork.artistRole);
+    artwork.region = this.ponerdato(artwork.region);
+    artwork.country = this.ponerdato(artwork.country);
+    artwork.city = this.ponerdato(artwork.city);
+    artwork.artistDisplayName = this.ponerdato(artwork.artistDisplayName);
 
     return artwork;
   }
