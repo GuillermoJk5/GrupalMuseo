@@ -56,7 +56,7 @@ class PopUp {
     const imageElement = document.createElement('img');
     imageElement.src = artwork.primaryImage;
     imageElement.alt = 'Artwork Image';
-    imageElement.style.height = '70%'; 
+    imageElement.className = 'img2'; 
     
     const authorElement = document.createElement('h2');
     authorElement.id = 'artworkAuthor';
