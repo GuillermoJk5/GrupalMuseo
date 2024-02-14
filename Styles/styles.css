@@ -79,8 +79,8 @@ select option {
 
 /* Estilos para la sección de la imagen */
 .img2{
-    width: 300px;
-    max-height: 350px;
+    width: auto;
+    max-height: 130px;
 }
 
 img {
